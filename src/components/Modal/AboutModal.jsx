@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, useScroll } from "framer-motion";
 import Backdrop from "./Backdrop";
 
 const dropIn = {
@@ -25,11 +25,13 @@ const dropIn = {
 // Opted to don't pass Children prop because it's the only usecase of the modal in the app.
 
 function AboutModal({ handleClose }) {
+  const { scrollYProgress } = useScroll();
   return (
     <Backdrop onClick={handleClose}>
       <motion.div
         onClick={(e) => e.stopPropagation()}
-        className="h-contain w-3/4 max-w-2xl m-auto p-5 rounded-md bg-white"
+        style={{ scaleX: scrollYProgress }}
+        className="h-contain w-3/4 max-w-2xl m-auto p-5 rounded-md bg-white overflow-y-auto"
         variants={dropIn}
         initial="hidden"
         animate="visible"
@@ -71,7 +73,7 @@ function AboutModal({ handleClose }) {
               user&apos;s workflow.
             </p>
           </div>
-          <div className="flex gap-1 text-sm">
+          <div className="flex flex-col lg:flex-row gap-1 text-sm">
             <p className="text-blue-950 ">
               Want to take a peek at the design and code?
             </p>

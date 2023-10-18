@@ -87,7 +87,7 @@ function AboutModal({ handleClose }) {
               </li>
               <li>
                 <a
-                  href=""
+                  href="https://github.com/dealencardavid/stacktimers"
                   target="blank"
                   className="border border-blue-950 text-blue-950 text-xs px-2 py-0.5 rounded-full hover:bg-blue-800 hover:text-white  transition-all duration-200"
                 >
